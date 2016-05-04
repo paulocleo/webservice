@@ -44,25 +44,10 @@ array('return' => 'xsd:string'), //Parametros de saida
 	function obter_diario($data)
 	{
 		include('arquivos/pdf2text.php');
-		// $result = pdf2text ('aplicacao.jt.jus.br/Diario_J_01.pdf');
-		$result = pdf2text ('arquivos/dj.pdf');
+		$result = pdf2text ('aplicacao.jt.jus.br/Diario_J_01.pdf');
+		// $result = pdf2text ('arquivos/dj.pdf');
 		if($result == "")
 			$result = "Não encontrado";
-		
-		//GRAVAR ARQUIVO
-		date_default_timezone_set("America/Recife");
-		// Abre ou cria o arquivo bloco1.txt
-		// "a" representa que o arquivo é aberto para ser escrito
-		$data = date("Ymd");
-		$fp = fopen($data.".txt", "w+");
-		 
-		// Escreve "exemplo de escrita" no bloco1.txt
-		$escreve = fwrite($fp, $result);
-		 
-		// Fecha o arquivo
-		fclose($fp);
-
-
 		return $result;
 	}
 
