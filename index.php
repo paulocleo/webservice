@@ -44,8 +44,9 @@ array('return' => 'xsd:string'), //Parametros de saida
 	function obter_diario($data)
 	{
 		include('arquivos/pdf2text.php');
-		$result = pdf2text ('aplicacao.jt.jus.br/Diario_J_01.pdf');
+		//$result = pdf2text ('aplicacao.jt.jus.br/Diario_J_01.pdf');
 		// $result = pdf2text ('arquivos/dj.pdf');
+		$result = get("aplicacao.jt.jus.br/Diario_J_01.pdf");
 		if($result == "")
 			$result = "Não encontrado";
 		return $result;
