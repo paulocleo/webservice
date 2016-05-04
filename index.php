@@ -47,7 +47,7 @@ array('return' => 'xsd:string'), //Parametros de saida
 		// $result = pdf2text ('aplicacao.jt.jus.br/Diario_J_01.pdf');
 		$result = pdf2text ('arquivos/dj.pdf');
 		if($result == "")
-			$result "Não encontrado";
+			$result = "Não encontrado";
 		return $result;
 	}
 
