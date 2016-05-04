@@ -8,17 +8,18 @@ $server = new soap_server;
 $server->configureWSDL('server.webservice', 'urn:server.webservice');
 $server->wsdl->schemaTargetNamespace = 'urn:server.webservice';
 //Registro do Método
-// $server->register('consulta_processo', //Nome do método
-// array('num_processo' => 'xsd:string'),
-// array('return' => 'xsd:string'), //Parametros de saida
-// 'urn:server.webservice', //namespace
-// 'urn:server.webservice#consulta',
-// 'rpc', //style
-// 'encoded', //use
-// 'Retorna consulta do processo' //Documentação do serviço
-// );
+$server->register('consulta_processo', //Nome do método
+array('num_processo' => 'xsd:string'),
+array('return' => 'xsd:string'), //Parametros de saida
+'urn:server.webservice', //namespace
+'urn:server.webservice#consulta',
+'rpc', //style
+'encoded', //use
+'Retorna consulta do processo' //Documentação do serviço
+);
 
 $server->register('obter_diario', //Nome do método
+array('data' => 'xsd:string'),
 array('return' => 'xsd:string'), //Parametros de saida
 'urn:server.webservice', //namespace
 'urn:server.webservice#consulta',
@@ -29,18 +30,18 @@ array('return' => 'xsd:string'), //Parametros de saida
 
 //Métodos
 
-	// function listar_onibus($num_processo)
-	// {		
-		// // $conn = mysql_connect('mysql.hostinger.com.br', 'u974275456_bus', 'cruz2401');
-		// // if (!$conn) {
-			// // die('Could not connect: ' . mysql_error());
-		// // }
-		// // //echo 'Connected database successfully';
-		// // mysql_select_db("u974275456_bus");
+	function listar_onibus($num_processo)
+	{		
+		// $conn = mysql_connect('mysql.hostinger.com.br', 'u974275456_bus', 'cruz2401');
+		// if (!$conn) {
+			// die('Could not connect: ' . mysql_error());
+		// }
+		// //echo 'Connected database successfully';
+		// mysql_select_db("u974275456_bus");
 		
-	// }
+	}
 	
-	function obter_diario()
+	function obter_diario($data)
 	{
 		include('arquivos/pdf2text.php');
 		// $result = pdf2text ('aplicacao.jt.jus.br/Diario_J_01.pdf');
