@@ -18,9 +18,18 @@ array('return' => 'xsd:string'), //Parametros de saida
 'Retorna consulta do processo' //Documentação do serviço
 );
 
+$server->register('obter_diario', //Nome do método
+array('return' => 'xsd:string'), //Parametros de saida
+'urn:server.webservice', //namespace
+'urn:server.webservice#consulta',
+'rpc', //style
+'encoded', //use
+'Retorna consulta do processo' //Documentação do serviço
+);
+
 //Métodos
 
-	function listar_onibus($origem, $destino, $via_conexao)
+	function listar_onibus($num_processo)
 	{		
 		// $conn = mysql_connect('mysql.hostinger.com.br', 'u974275456_bus', 'cruz2401');
 		// if (!$conn) {
@@ -29,6 +38,14 @@ array('return' => 'xsd:string'), //Parametros de saida
 		// //echo 'Connected database successfully';
 		// mysql_select_db("u974275456_bus");
 		
+	}
+	
+	function obter_diario()
+	{
+		include('arquivos/pdf2text.php');
+		// $result = pdf2text ('aplicacao.jt.jus.br/Diario_J_01.pdf');
+		$result = pdf2text ('arquivos/dj.pdf');
+		return $result;
 	}
 
 	//Requisição para uso do serviço
