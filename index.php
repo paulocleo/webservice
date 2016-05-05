@@ -45,11 +45,12 @@ array('return' => 'xsd:string'), //Parametros de saida
 	{
 		include('arquivos/class.pdf2text.php');
 		//$result = pdf2text ('aplicacao.jt.jus.br/Diario_J_01.pdf');		
-		$a = new PDF2Text();
-		//$a->setFilename('arquivos/teste.pdf');
-		$a->setFilename('https://webpcruz.herokuapp.com/arquivos/teste.pdf'); 
-		$a->decodePDF();
-		$result = $a->output(); 
+		// $a = new PDF2Text();
+		// //$a->setFilename('arquivos/teste.pdf');
+		// $a->setFilename('https://webpcruz.herokuapp.com/arquivos/teste.pdf'); 
+		// $a->decodePDF();
+		$result = @file_get_contents('https://webpcruz.herokuapp.com/arquivos/teste.pdf', FILE_BINARY);
+		//$result = $a->output(); 
 		
 		if($result == "")
 			$result = "Não encontrado";
