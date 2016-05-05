@@ -46,7 +46,7 @@ array('return' => 'xsd:string'), //Parametros de saida
 		include('class.pdf2text.php');
 		//$result = pdf2text ('aplicacao.jt.jus.br/Diario_J_01.pdf');		
 		$a = new PDF2Text();
-		$a->setFilename('dj.pdf');
+		$a->setFilename('arquivos/dj.pdf');
 		$a->decodePDF();
 		$result = $a->output(); 
 		
