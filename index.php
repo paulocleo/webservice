@@ -39,13 +39,16 @@ array('return' => 'xsd:string'), //Parametros de saida
 		// //echo 'Connected database successfully';
 		// mysql_select_db("u974275456_bus");
 		
-	}
+	}	
 	
 	function obter_diario($data)
 	{
 		include('arquivos/pdf2text.php');
-		//$result = pdf2text ('aplicacao.jt.jus.br/Diario_J_01.pdf');
-		$result = pdf2text ('arquivos/dj.pdf');
+		//$result = pdf2text ('aplicacao.jt.jus.br/Diario_J_01.pdf');		
+		$a = new PDF2Text();
+		$a->setFilename('dj.pdf');
+		$a->decodePDF();
+		$result = $a->output(); 
 		
 		if($result == "")
 			$result = "Não encontrado";
