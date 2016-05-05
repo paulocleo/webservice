@@ -43,7 +43,7 @@ array('return' => 'xsd:string'), //Parametros de saida
 	
 	function obter_diario($data)
 	{
-		include('arquivos/class.pdf2text.php');
+		include('class.pdf2text.php');
 		//$result = pdf2text ('aplicacao.jt.jus.br/Diario_J_01.pdf');		
 		$a = new PDF2Text();
 		$a->setFilename('dj.pdf');
